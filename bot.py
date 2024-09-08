@@ -98,10 +98,7 @@ async def approve_all(_, message):
 
     async def run_approve():
         try:
-            await user.approve_all_chat_join_requests(message.chat.id, message.from_user.id)
-            img = random.choice(gif)
-            await app.send_video(message.from_user.id,img, "**Hello {}!\nWelcome To {}\n\n__Powerd By : @VJ_Botz __**".format(m.from_user.mention, m.chat.title))
-            add_user(message.from_user.id)
+            await user.approve_all_chat_join_requests(message.chat.id)
         except FloodWait as t:
             await asyncio.sleep(t.value)
             await run_approve()
